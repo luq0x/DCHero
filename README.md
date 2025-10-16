@@ -1,6 +1,6 @@
-# DCHero 
+# DC Hero 
 
-**DCHero** is a Go-based tool designed to identify **Dependency Confusion vulnerability** in web applications by analyzing URLs that point to dependency manifests (such as `package.json`, `requirements.txt`, `go.mod`, etc.) as well as JavaScript/TypeScript source files that import public packages.
+A Go tool designed to identify **Dependency Confusion vulnerability** in web applications by analyzing URLs that point to dependency manifests (such as `package.json`, `requirements.txt`, `go.mod`, etc.) as well as JavaScript/TypeScript source files that import public packages.
 
 The tool automatically checks whether listed packages are **unregistered (unclaimed)** in public registries (`npm` and `PyPI`), which may indicate a **potential Dependency Confusion attack surface**.
 
@@ -17,7 +17,7 @@ The tool automatically checks whether listed packages are **unregistered (unclai
 
 ---
 
-## ⚙️ Usage
+## Usage
 
 ### Input
 The tool reads **URLs** from standard input (`stdin`).
@@ -128,10 +128,10 @@ go install github.com/luq0x/dchero@latest
 
 ---
 
-## 💡 Pipeline usage example
+## Pipeline usage example
 
 ```bash
-cat urls.txt | ./dchero -t 80 -silent | tee results.txt
+cat domains.txt | katana -d 3 -silent | dchero -silent -t 80
 ```
 
 You can combine **DCHero** with tools like **gau**, **waybackurls**, **katana**, **gospider**, or **hakrawler** to automatically gather and analyze URLs.
