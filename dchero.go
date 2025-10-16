@@ -409,15 +409,12 @@ func main() {
 			raw = append(raw, line)
 		}
 	}
-	// silencioso mesmo se der erro de leitura
 	if len(raw) == 0 {
-		// sem prints de erro
 		return
 	}
 
 	filtered := filterManifestURLs(raw)
 	if len(filtered) == 0 {
-		// sem prints de erro
 		return
 	}
 
@@ -438,7 +435,6 @@ func main() {
 	results, _ := runWorkers(inputs, worker, *threads)
 
 	for _, r := range results {
-		// não imprime erros; ignora silently
 		if r.err != nil {
 			continue
 		}
